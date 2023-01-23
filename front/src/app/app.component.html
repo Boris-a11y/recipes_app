@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span
+    ><a routerLink="/">{{ title }}</a></span
+  >
+  <span class="flexExpand"></span>
+  <a href="/dashboard">Dashboard</a>
+  <div>
+    <a routerLink="/register">Register</a>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/logout">Logout</a>
+  </div>
+</mat-toolbar>
+
+<nav *ngIf="LoggedIn" class="navigation_main"></nav>
+
+<router-outlet></router-outlet>

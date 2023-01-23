@@ -1,0 +1,36 @@
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container">
+    <h3>Login</h3>
+    <div class="container">
+      <mat-form-field appereance="fill" class="full-width">
+        <mat-label for="username">Enter your username</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Username"
+          formControlName="username"
+        />
+      </mat-form-field>
+
+      <mat-form-field appereance="fill" class="full-width">
+        <mat-label for="password">Enter your Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+
+      <mat-hint *ngIf="!loginForm.valid">Fill out all the fields!</mat-hint>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        value="loginForm"
+        [disabled]="!loginForm.valid"
+        class="full-width"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- TO DO: CREATE LOGIN FORM -->
