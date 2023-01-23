@@ -14,4 +14,6 @@ export class RecipesService {
   getRecipes(): Observable<any> {
     return this.http.get(`${apiUrl}/recipes`, httpOptions);
   }
+  
+  //Do other CRUD stuff...
 }
