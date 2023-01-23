@@ -1,4 +1,4 @@
-A CRUD App for recipes managment with cookie based auth
+A CRUD App for recipes managment with cookie based Authentication
 
 # Tech Stack 
 ## Backend: 
