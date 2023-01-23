@@ -49,7 +49,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatIconModule,
     MatCardModule,
   ],
-  providers: [AuthGuard, LoginGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
