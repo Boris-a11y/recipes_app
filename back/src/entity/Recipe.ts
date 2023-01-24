@@ -15,8 +15,11 @@ export class Recipe {
   @Column('text', { array: true })
   ingredients: string[];
 
+  // @Column({ nullable: true })
+  // userId: number;
+
   @Column({ nullable: true })
-  userId: number;
+  owner: string;
 
   @ManyToOne(() => User, (user) => user.recipe)
   user: User;

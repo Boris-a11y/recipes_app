@@ -11,12 +11,21 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class DashboardComponent implements OnInit {
   constructor(private recipesService: RecipesService) {}
   recipes: Recipe[] = [];
-  ownerId!: User;
 
   getOwnerId() {
     this.recipesService.getRecipes().subscribe({
       next: (data) => {
+        console.log(data);
         this.recipes = data;
+        console.log(data.owner);
+      },
+    });
+  }
+
+  deleteRecipes() {
+    this.recipesService.deleteRecipe().subscribe({
+      next: (data) => {
+        console.log(data);
       },
     });
   }

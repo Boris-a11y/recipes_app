@@ -5,7 +5,7 @@ import { config } from '../config/config';
 const { JWT_SECRET, JWT_EXPIRES_IN } = config;
 
 export const createAccessToken = (user: User): string => {
-  return sign({ id: user.id }, JWT_SECRET, {
+  return sign({ id: user.id, user: user.username }, JWT_SECRET, {
     expiresIn: JWT_EXPIRES_IN,
     algorithm: 'HS256',
   });

@@ -14,6 +14,7 @@ export const isAuth = async (req: any, res: Response, next: NextFunction) => {
 
   const payload: any = verify(token, JWT_SECRET);
   req.userId = payload.id;
+  req.user = payload.user;
 
   return next();
 };

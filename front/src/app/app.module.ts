@@ -21,7 +21,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
 import { AuthGuard } from './auth/auth.guard';
-import { LoginGuard } from './auth/login.guard';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 

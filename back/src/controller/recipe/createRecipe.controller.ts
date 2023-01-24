@@ -8,7 +8,7 @@ export const createRecipe = async (req: any, res: Response) => {
 
   const recipe: Recipe = await recipeRepository.save({
     ...recipeData,
-    userId: req.userId,
+    owner: req.user,
   });
 
   return res.status(201).json(recipe);
