@@ -14,4 +14,20 @@ export class RecipesService {
   getRecipes(): Observable<any> {
     return this.http.get(`${apiUrl}/recipes`, httpOptions);
   }
+
+  // getCreatorId() {
+  //   return t;
+  // }
+
+  addRecipe(
+    title: string,
+    description: string,
+    ingredients: string[]
+  ): Observable<any> {
+    return this.http.post(
+      `${apiUrl}/recipes`,
+      { title, description, ingredients },
+      httpOptions
+    );
+  }
 }

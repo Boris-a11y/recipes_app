@@ -1,5 +1,7 @@
 <p>dashboard works!</p>
 
+<app-add-recipe></app-add-recipe>
+
 <ul *ngFor="let recipe of recipes">
   <li>{{ recipe.title }}</li>
   <li>{{ recipe.description }}</li>
@@ -10,7 +12,7 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ recipe.title }}</mat-card-title>
-    <mat-card-subtitle>By {{ currentUserId }}</mat-card-subtitle>
+    <mat-card-subtitle>By user with id: {{ recipe.userId }} </mat-card-subtitle>
   </mat-card-header>
   <img
     mat-card-image

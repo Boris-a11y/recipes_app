@@ -1,0 +1,47 @@
+<p>ADD A NEW RECIPE</p>
+
+<div class="recipe">
+  <form
+    [formGroup]="recipeForm"
+    (ngSubmit)="addRecipe()"
+    class="form-container"
+  >
+    <h3>Add new</h3>
+    <div class="container">
+      <mat-form-field appereance="fill" class="full-width">
+        <mat-label for="title">Recipe title</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Title"
+          formControlName="title"
+        />
+      </mat-form-field>
+
+      <mat-form-field appereance="fill" class="full-width">
+        <mat-label for="description">Recipe description</mat-label>
+        <input matInput type="text" formControlName="description" />
+      </mat-form-field>
+
+      <mat-form-field appereance="fill" class="full-width">
+        <mat-label for="ingredients">Recipe ingredients</mat-label>
+        <input matInput type="text" formControlName="ingredients" />
+      </mat-form-field>
+
+      <mat-hint *ngIf="!recipeForm.valid">Fill out all the fields!</mat-hint>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        value="recipeForm"
+        [disabled]="!recipeForm.valid"
+        class="full-width"
+      >
+        Create
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- TO DO: CREATE LOGIN FORM -->

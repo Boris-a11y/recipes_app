@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/models/recipe';
 import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -10,29 +9,19 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(
-    private recipesService: RecipesService,
-    private authService: AuthService
-  ) {}
+  constructor(private recipesService: RecipesService) {}
   recipes: Recipe[] = [];
-  currentUserId!: User;
+  ownerId!: User;
 
-  getUserId() {
-    this.authService.me().subscribe({
+  getOwnerId() {
+    this.recipesService.getRecipes().subscribe({
       next: (data) => {
-        console.log(data.currentUser.id);
-        this.currentUserId = data.currentUser.id;
+        this.recipes = data;
       },
     });
   }
 
   ngOnInit(): void {
-    this.getUserId();
-    this.recipesService.getRecipes().subscribe({
-      next: (data) => {
-        console.log(data);
-        this.recipes = data;
-      },
-    });
+    this.getOwnerId();
   }
 }

@@ -15,9 +15,6 @@ export class User {
   @Column()
   age!: number;
 
-  @Column()
-  ownerId: number;
-
   @OneToMany(() => Recipe, (recipe) => recipe.user)
   recipe: Recipe[];
 }

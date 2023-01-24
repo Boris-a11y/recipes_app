@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginGuard } from './auth/login.guard';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     RegisterComponent,
     UnauthorizedComponent,
     LogoutComponent,
+    AddRecipeComponent,
   ],
   imports: [
     BrowserModule,
