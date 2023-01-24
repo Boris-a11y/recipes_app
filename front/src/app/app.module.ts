@@ -51,7 +51,7 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
     MatIconModule,
     MatCardModule,
   ],
-  providers: [AuthGuard, LoginGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

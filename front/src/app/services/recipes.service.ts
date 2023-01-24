@@ -14,6 +14,7 @@ export class RecipesService {
   getRecipes(): Observable<any> {
     return this.http.get(`${apiUrl}/recipes`, httpOptions);
   }
+<<<<<<< HEAD
 
   // getCreatorId() {
   //   return t;
@@ -30,4 +31,8 @@ export class RecipesService {
       httpOptions
     );
   }
+=======
+  
+  //Do other CRUD stuff...
+>>>>>>> d68812680f4c8945f853331efa44bde5dda4a0b5
 }
