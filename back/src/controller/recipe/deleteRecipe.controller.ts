@@ -1,10 +1,29 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { Recipe } from 'src/entity/Recipe';
 import { recipeRepository } from '../../repository/repository';
+import { MyUserRequest } from '../../utils/MyUserRequest';
 import { _Recipe } from './_Recipe';
 
-export const deleteRecipe = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const deletedRecipe = await recipeRepository.delete(id);
+export const deleteRecipe = async (req: MyUserRequest, res: Response) => {
+  const id: number = Number(req.params.id);
+  console.log(id);
+  const recipe: Recipe | null = await recipeRepository.findOne({
+    where: { id },
+  });
 
-  return res.status(201).json(deletedRecipe);
+  if (!recipe) {
+    return res.status(400).json({ message: `No recipes with id: ${id}!` });
+  }
+
+  if (recipe.ownerId !== req.userId) {
+    return res
+      .status(201)
+      .json({ message: `Can't delete someone elses recipe!` });
+  }
+
+  await recipeRepository.delete({
+    id,
+  });
+
+  return res.status(201).json({ message: `Deleted recipe with id: ${id}!` });
 };

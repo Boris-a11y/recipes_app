@@ -5,7 +5,7 @@ import { _User } from './_User';
 import { User } from 'src/entity/User';
 
 export const Register = async (req: Request, res: Response): Promise<void> => {
-  const { username, password, age }: _User = req.body;
+  const { username, password, age, id }: _User = req.body;
 
   const salt: string = await bcrypt.genSalt(12);
   const hashedPassword: string = await bcrypt.hash(password, salt);
@@ -14,6 +14,7 @@ export const Register = async (req: Request, res: Response): Promise<void> => {
     username,
     password: hashedPassword,
     age,
+    id,
   });
 
   res.status(201).send(user);

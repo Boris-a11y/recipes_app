@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'add-recipe', component: AddRecipeComponent },
   { path: 'forbidden', component: UnauthorizedComponent },
 ];
 

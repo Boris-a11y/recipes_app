@@ -27,7 +27,7 @@ export class RecipesService {
     );
   }
 
-  deleteRecipe(): Observable<any> {
-    return this.http.delete(`${apiUrl}/recipes`, httpOptions);
+  deleteRecipe(id: any): Observable<any> {
+    return this.http.delete(`${apiUrl}/recipes/${id}`, httpOptions);
   }
 }

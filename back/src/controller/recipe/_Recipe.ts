@@ -3,5 +3,5 @@ export type _Recipe = {
   title: string;
   description: string;
   ingredients: Array<string>;
-  userId: number
+  ownerId: number;
 };

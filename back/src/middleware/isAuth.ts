@@ -1,10 +1,15 @@
-import jwt, { verify } from 'jsonwebtoken';
+import { verify } from 'jsonwebtoken';
 import { NextFunction, Response } from 'express';
 import { config } from '../config/config';
+import { MyUserRequest } from 'src/utils/MyUserRequest';
 
 const { COOKIE_NAME, JWT_SECRET } = config;
 
-export const isAuth = async (req: any, res: Response, next: NextFunction) => {
+export const isAuth = async (
+  req: MyUserRequest,
+  res: Response,
+  next: NextFunction,
+) => {
   const token: string = req.cookies[COOKIE_NAME];
   console.log(req.cookies);
 
@@ -15,6 +20,7 @@ export const isAuth = async (req: any, res: Response, next: NextFunction) => {
   const payload: any = verify(token, JWT_SECRET);
   req.userId = payload.id;
   req.user = payload.user;
+  console.log(payload);
 
   return next();
 };
