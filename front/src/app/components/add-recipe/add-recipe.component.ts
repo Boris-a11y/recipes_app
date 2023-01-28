@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class AddRecipeComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private recipesService: RecipesService
+    private recipesService: RecipesService,
+    private router: Router
   ) {}
 
   recipeForm: FormGroup = this.formBuilder.group({
@@ -23,6 +25,7 @@ export class AddRecipeComponent implements OnInit {
     const { title, description, ingredients } = this.recipeForm.value;
     this.recipesService.addRecipe(title, description, ingredients).subscribe({
       next: (data) => {
+        this.router.navigate(['/dashboard']);
         console.log(data);
       },
       error: (err) => {

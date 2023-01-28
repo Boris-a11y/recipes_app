@@ -9,3 +9,8 @@ body{
     background-image: radial-gradient(#a3a3a3 0.9500000000000001px, #dcdcdc 0.9500000000000001px);
     background-size: 19px 19px;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}

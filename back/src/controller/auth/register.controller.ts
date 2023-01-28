@@ -10,6 +10,8 @@ export const Register = async (req: Request, res: Response): Promise<void> => {
   const salt: string = await bcrypt.genSalt(12);
   const hashedPassword: string = await bcrypt.hash(password, salt);
 
+  //Do validation here
+
   const user: User = await userRepository.save({
     username,
     password: hashedPassword,

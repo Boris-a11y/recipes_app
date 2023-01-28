@@ -23,6 +23,9 @@ import { MatCardModule } from '@angular/material/card';
 import { AuthGuard } from './auth/auth.guard';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
+import { LoginGuard } from './auth/login.guard';
+import { IsLoggedIn } from './services/isLoggedIn';
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
     UnauthorizedComponent,
     LogoutComponent,
     AddRecipeComponent,
+    RecipeDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import { AddRecipeComponent } from './components/add-recipe/add-recipe.component
     MatIconModule,
     MatCardModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, IsLoggedIn],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

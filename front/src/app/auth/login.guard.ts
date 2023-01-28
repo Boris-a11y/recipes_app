@@ -13,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class LoginGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -23,12 +23,11 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.isAuthenticated().pipe(
-      take(1),
-      tap((loggedIn) => {
-        console.log(loggedIn);
-        if (!loggedIn) this.router.navigate(['forbidden']);
-      })
-    );
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+      return false;
+    } else {
+      return true;
+    }
   }
 }

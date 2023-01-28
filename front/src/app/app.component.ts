@@ -13,13 +13,11 @@ export class AppComponent {
   title = 'Recipe App!';
 
   LoggedIn = false;
+  currentUser = '';
 
   ngOnInit() {
-    return this.authService.isAuthenticated().pipe(
-      take(1),
-      tap((loggedIn) => {
-        this.LoggedIn = loggedIn;
-      })
-    );
+    return this.authService.me().subscribe({
+      next: (data) => (this.currentUser = data.currentUser.user),
+    });
   }
 }

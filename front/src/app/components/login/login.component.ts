@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
 
   isSuccessful = false;
   errorMessage = '';
-  hide = true;
 
   onSubmit(): void {
     const { username, password }: User = this.loginForm.value;
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
-        console.log(err);
+        this.errorMessage = err.error.message;
       },
     });
   }

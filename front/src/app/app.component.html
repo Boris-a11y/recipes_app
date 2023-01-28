@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="nav">
   <button
     mat-icon-button
     class="example-icon"
@@ -10,12 +10,18 @@
     ><a routerLink="/">{{ title }}</a></span
   >
   <span class="flexExpand"></span>
-  <a href="/dashboard">Dashboard</a>
+  <a href="/dashboard" *ngIf="currentUser"
+    ><mat-icon class="links">list</mat-icon></a
+  >
   <div>
-    <a routerLink="/register">Register</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/logout">Logout</a>
-    <a routerLink="/add-recipe">Add Recipe</a>
+    <a routerLink="/register" *ngIf="!currentUser">Register</a>
+    <a routerLink="/login" *ngIf="!currentUser">Login</a>
+    <a routerLink="/add-recipe" *ngIf="currentUser"
+      ><mat-icon class="links">add</mat-icon></a
+    >
+    <a routerLink="/logout"
+      ><mat-icon class="links">power_settings_new</mat-icon></a
+    >
   </div>
 </mat-toolbar>
 

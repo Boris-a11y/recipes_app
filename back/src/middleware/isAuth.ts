@@ -20,7 +20,6 @@ export const isAuth = async (
   const payload: any = verify(token, JWT_SECRET);
   req.userId = payload.id;
   req.user = payload.user;
-  console.log(payload);
 
   return next();
 };

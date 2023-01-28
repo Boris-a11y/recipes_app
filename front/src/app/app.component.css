@@ -2,3 +2,16 @@
     flex: 1 1 auto;
 }
 
+.links{
+    padding: 0.5rem;
+}
+
+.links:hover{
+    color: #a8a8a8;
+}
+
+.nav{
+    position: sticky;
+    position: -webkit-sticky; 
+    z-index: 1000; 
+}

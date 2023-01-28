@@ -18,8 +18,7 @@
       </mat-form-field>
 
       <mat-hint *ngIf="!loginForm.valid">Fill out all the fields!</mat-hint>
-      
-      //get and display server error MSGS!
+      <mat-hint>{{ errorMessage }}</mat-hint>
 
       <button
         mat-raised-button
@@ -34,5 +33,3 @@
     </div>
   </form>
 </div>
-
-
