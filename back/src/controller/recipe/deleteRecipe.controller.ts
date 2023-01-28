@@ -5,8 +5,13 @@ import { MyUserRequest } from '../../utils/MyUserRequest';
 import { _Recipe } from './_Recipe';
 
 export const deleteRecipe = async (req: MyUserRequest, res: Response) => {
+<<<<<<< HEAD
   const id = +req.params.id;
 
+=======
+  const id: number = Number(req.params.id);
+  
+>>>>>>> 455c10fc74a920520e7a11e2c9d36756b1a9e420
   const recipe: Recipe | null = await recipeRepository.findOne({
     where: { id },
   });
