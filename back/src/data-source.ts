@@ -5,12 +5,12 @@ import { config } from './config/config';
 import { Recipe } from './entity/Recipe';
 
 export const AppDataSource: DataSource = new DataSource({
-  type: config.DB_TYPE as any,
-  host: config.DB_HOST,
+  type: (config.DB_TYPE as any) || 'postgres',
+  host: config.DB_HOST || 'localhost',
   port: config.DB_PORT,
-  username: config.DB_USERNAME,
-  password: config.DB_PASSWORD,
-  database: config.DATABASE,
+  username: config.DB_USERNAME || 'postgres',
+  password: config.DB_PASSWORD || 'postgres',
+  database: config.DATABASE || 'recipeapp',
   synchronize: true,
   logging: false,
   entities: [User, Recipe],

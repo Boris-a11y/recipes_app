@@ -2,6 +2,7 @@ import { verify } from 'jsonwebtoken';
 import { NextFunction, Response } from 'express';
 import { config } from '../config/config';
 import { MyUserRequest } from 'src/utils/MyUserRequest';
+import { logger } from '../logging-file/logger';
 
 const { COOKIE_NAME, JWT_SECRET } = config;
 
@@ -11,7 +12,6 @@ export const isAuth = async (
   next: NextFunction,
 ) => {
   const token: string = req.cookies[COOKIE_NAME];
-  console.log(req.cookies);
 
   if (!token) {
     return res.status(401).send({ message: 'Not Authenticated' });

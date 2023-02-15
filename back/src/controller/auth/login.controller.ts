@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { userRepository } from '../../repository/repository';
 import { compare } from 'bcryptjs';
-import { _User } from './_User';
+import { _User } from '../../model/_User';
 import { createAccessToken } from '../../utils/auth';
 import { config } from '../../config/config';
 import { User } from 'src/entity/User';
