@@ -78,7 +78,7 @@ export class AuthController {
       .send({ message: 'logged out' });
   };
 
-  _currentUser = async (req: MyUserRequest, res: Response) => {
+  currentUser = async (req: MyUserRequest, res: Response) => {
     return res.json({ currentUser: { id: req.userId, user: req.user } });
   };
 }

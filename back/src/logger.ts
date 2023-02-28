@@ -1,7 +1,7 @@
-import { format, createLogger, transports } from 'winston';
+import winston, { format, createLogger, transports } from 'winston';
 const { combine, timestamp, label, prettyPrint, errors } = format;
 
-export const logger = createLogger({
+export const logger: winston.Logger = createLogger({
   level: 'debug',
   format: combine(
     errors({ stack: true }),

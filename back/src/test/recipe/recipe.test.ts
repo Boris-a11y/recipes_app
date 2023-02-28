@@ -1,23 +1,18 @@
 import { beforeAll, afterAll, describe, it, expect } from '@jest/globals';
+import request from 'supertest';
 import typeormFaker from 'typeorm-faker';
+import { User } from '@entity/User';
 import { Recipe } from '@entity/Recipe';
 import { recipeRepository } from '@repository/repository';
 import { AppDataSource } from 'data-source';
 import sinon from 'sinon';
-import {
-  Recipes,
-  createRecipe,
-  getRecipe,
-  deleteRecipe,
-} from '@services/recipeService';
-import request from 'supertest';
-import { app } from '../../server';
+import { RecipeService } from '@services/recipeService';
+import { app } from 'server';
 import { createAccessToken } from '@utils/auth';
-import { User } from '@entity/User';
 import { Cookie } from 'cookiejar';
-import { ValidationRules } from '@validation-rules/registerValidation';
-import { logger } from '../../logger';
+import { logger } from 'logger';
 
+const { prototype: recipeService } = RecipeService;
 const user = new User();
 
 beforeAll(() => {
@@ -77,7 +72,7 @@ describe('GET /api/recipes', () => {
   });
 
   it('should fetch an array of recipes and respond with json', async () => {
-    const data = await Recipes();
+    const data = await recipeService.Recipes();
 
     expect(data).toBeDefined();
     expect(data.recipes.length).toBeGreaterThan(0);
@@ -85,7 +80,7 @@ describe('GET /api/recipes', () => {
   });
 
   it('should fetch a single recipe', async () => {
-    const data = await getRecipe(1);
+    const data = await recipeService.getRecipe(1);
 
     logger.info(data.recipe?.title);
     expect(data.recipe?.title).toBeDefined();
@@ -119,7 +114,7 @@ describe('POST /api/recipes', () => {
   });
 
   it('should create a recipe', async () => {
-    const data = await createRecipe(
+    const data = await recipeService.createRecipe(
       {
         id: 1,
         title: 'my title',
@@ -160,7 +155,7 @@ describe('DELETE /api/recipes', () => {
   });
 
   it('should delete only the owners recipe', async () => {
-    const data = await deleteRecipe(1, 1);
+    const data = await recipeService.deleteRecipe(1, 1);
     expect(data.statusCode).toBe(200);
   });
 });

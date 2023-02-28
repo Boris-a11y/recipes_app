@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { User } from './User';
+import { User } from '@entity/User';
 
 @Entity()
 export class Recipe {
