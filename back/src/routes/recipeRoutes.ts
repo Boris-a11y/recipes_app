@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { isAuth } from '../middleware/isAuth';
+import { isAuth } from '@middleware/isAuth';
 import { RecipeController } from '@controller/recipe/recipeController';
 
 const recipeRouter: Router = express.Router();
