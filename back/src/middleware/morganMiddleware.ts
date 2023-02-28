@@ -1,6 +1,6 @@
 import correlator from 'express-correlation-id';
+import { logger } from 'logger';
 import morgan from 'morgan';
-import { logger } from '../logging-file/logger';
 
 export const morganMiddleware = morgan(
   function (tokens, req, res) {

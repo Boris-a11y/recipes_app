@@ -1,21 +1,13 @@
-import { Register } from '../controller/auth/register.controller';
-import { Login } from '../controller/auth/login.controller';
-import { Logout } from '../controller/auth/logout.controller';
-import { isAuth } from '../middleware/isAuth';
-import { me } from '../controller/auth/me.controller';
+import { isAuth } from '@middleware/isAuth';
 import express from 'express';
-import {
-  RegisterUser,
-  LoginUser,
-  LogoutUser,
-  _currentUser,
-} from '../controller/auth/authController';
+import { AuthController } from '@controller/auth/authController';
 
 const authRouter = express.Router();
+const { prototype: authControler } = AuthController;
 
-authRouter.post('/api/register', RegisterUser);
-authRouter.post('/api/login', LoginUser);
-authRouter.get('/api/me', isAuth, _currentUser);
-authRouter.get('/api/logout', isAuth, LogoutUser);
+authRouter.post('/api/register', authControler.RegisterUser);
+authRouter.post('/api/login', authControler.LoginUser);
+authRouter.get('/api/me', isAuth, authControler._currentUser);
+authRouter.get('/api/logout', isAuth, authControler.LogoutUser);
 
 export { authRouter };

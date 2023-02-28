@@ -1,4 +1,4 @@
-export type _User = {
+export type UserDTO = {
   username: string;
   password: string;
   age: number;

@@ -1,8 +1,7 @@
 import { verify } from 'jsonwebtoken';
 import { NextFunction, Response } from 'express';
-import { config } from '../config/config';
-import { MyUserRequest } from 'src/utils/MyUserRequest';
-import { logger } from '../logging-file/logger';
+import { config } from '@config/config';
+import { MyUserRequest } from '@utils/MyUserRequest';
 
 const { COOKIE_NAME, JWT_SECRET } = config;
 

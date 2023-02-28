@@ -1,12 +1,12 @@
 import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
-import { recipeRouter } from './routes/recipeRoutes';
+import { authRouter } from '@routes/authRoutes';
+import { recipeRouter } from '@routes/recipeRoutes';
 import cookieParser from 'cookie-parser';
-import { authRouter } from './routes/authRoutes';
-import { morganMiddleware } from './morgan-middleware/morganMiddleware';
-import genericErrorHandler from './exceptions/applicationError';
-import notFoundError from './exceptions/notFoundError';
+import { morganMiddleware } from '@middleware/morganMiddleware';
+import errorHandler from '@errorHandlers/errorHandler';
+import notFoundError from '@errorHandlers/notFoundError';
 import correlator from 'express-correlation-id';
 
 const app = express();
@@ -26,7 +26,7 @@ app.use(
 app.use(correlator());
 
 app.use(recipeRouter, authRouter);
-app.use(genericErrorHandler);
+app.use(errorHandler);
 app.use(notFoundError);
 
 export { app };

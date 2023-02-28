@@ -1,9 +1,9 @@
 import 'reflect-metadata';
-import { AppDataSource } from './data-source';
-import { config } from './config/config';
-import { app } from './server';
-import { logger } from './logging-file/logger';
-import { env } from './envalid/envCheck';
+import { AppDataSource } from 'data-source';
+import { config } from '@config/config';
+import { env } from '@config/envValidation';
+import { app } from 'server';
+import { logger } from 'logger';
 
 const { PORT } = config;
 

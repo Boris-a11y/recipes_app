@@ -1,4 +1,4 @@
-export type _Recipe = {
+export type RecipeDTO = {
   id: number;
   title: string;
   description: string;

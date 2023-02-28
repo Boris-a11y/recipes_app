@@ -1,7 +1,7 @@
-import { Recipe } from '../entity/Recipe';
+import { Recipe } from '@entity/Recipe';
+import { User } from '@entity/User';
 import { Repository } from 'typeorm';
-import { AppDataSource } from '../data-source';
-import { User } from '../entity/User';
+import { AppDataSource } from 'data-source';
 
 export const userRepository: Repository<User> =
   AppDataSource.getRepository(User);

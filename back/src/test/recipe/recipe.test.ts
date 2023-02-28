@@ -1,22 +1,22 @@
-import typeormFaker from 'typeorm-faker';
-import { Recipe } from '../../entity/Recipe';
 import { beforeAll, afterAll, describe, it, expect } from '@jest/globals';
-import { recipeRepository } from '../../repository/repository';
-import { AppDataSource } from '../../data-source';
+import typeormFaker from 'typeorm-faker';
+import { Recipe } from '@entity/Recipe';
+import { recipeRepository } from '@repository/repository';
+import { AppDataSource } from 'data-source';
 import sinon from 'sinon';
 import {
   Recipes,
   createRecipe,
   getRecipe,
   deleteRecipe,
-} from '../../services/recipeService';
+} from '@services/recipeService';
 import request from 'supertest';
 import { app } from '../../server';
-import { createAccessToken } from '../../utils/auth';
-import { User } from '../../entity/User';
+import { createAccessToken } from '@utils/auth';
+import { User } from '@entity/User';
 import { Cookie } from 'cookiejar';
-import { registerSchema } from '../../validation-rules/registerValidation';
-import { logger } from '../../logging-file/logger';
+import { ValidationRules } from '@validation-rules/registerValidation';
+import { logger } from '../../logger';
 
 const user = new User();
 

@@ -6,11 +6,16 @@
    "scripts": {
       "start": "tsnd --respawn src/index.ts",
       "test": "jest",
+      "coverage": "npm run test:coverage",
       "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
       "typeorm": "typeorm-ts-node-commonjs",
       "migration:generate": "npm run typeorm migration:generate -- -d src/data-source.ts",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/data-source.ts"
    },
+   "_moduleAliases": {
+      "@modules": "dist/rest/modules",
+      "@services": "dist/services"
+    },
    "keywords": [],
    "author": "",
    "license": "ISC",
@@ -28,6 +33,7 @@
       "express-http-context": "^1.2.4",
       "joi": "^17.7.0",
       "jsonwebtoken": "^9.0.0",
+      "module-alias": "^2.2.2",
       "morgan": "^1.10.0",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.13",

@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
-import { logger } from '../logging-file/logger';
+import { Request, Response, NextFunction } from 'express';
+import { logger } from 'logger';
 
-export default function genericErrorHandler(
+export default function errorHandler(
   err: any,
   _: Request,
   res: Response,

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { logger } from '../logging-file/logger';
-import HttpStatusCode from '../utils/HttpCodes';
+import HttpStatusCode from '@httpCodes/HttpCodes';
+import { logger } from 'logger';
 
 export default function notFoundError(
   _: Request,

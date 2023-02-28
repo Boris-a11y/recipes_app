@@ -25,7 +25,25 @@
      "emitDecoratorMetadata": true,
      "experimentalDecorators": true,
      "resolveJsonModule": true,
-     "baseUrl": "."
+     "baseUrl": ".",
+     "paths": {
+      "@modules/*": ["rest/modules/*"],
+      "@errorHandlers/*": ["src/errorHandlers/*"],
+      "@controller/*": ["src/controller/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"],
+      "@validation-rules/*": ["src/validation-rules/*"],
+      "@model/*": ["src/model/*"], 
+      "@httpCodes/*": ["src/httpCodes/*"],
+      "@config/*": ["src/config/*"],
+      "@entity/*": ["src/entity/*"],
+      "@middleware/*": ["src/middleware/*"],
+      "@repository/*": ["src/repository/*"],
+      "data-source": ["src/data-source"],
+      "server": ["src/server"],
+      "logger": ["src/logger"]
+    }
    },
    "exclude": [
      "node_modules", 

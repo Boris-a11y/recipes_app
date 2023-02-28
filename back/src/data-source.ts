@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { User } from './entity/User';
-import { config } from './config/config';
-import { Recipe } from './entity/Recipe';
+import { User } from '@entity/User';
+import { Recipe } from '@entity/Recipe';
+import { config } from '@config/config';
 
 export const AppDataSource: DataSource = new DataSource({
   type: (config.DB_TYPE as any) || 'postgres',

@@ -1,6 +1,6 @@
-import { User } from '../entity/User';
+import { User } from '@entity/User';
 import { sign } from 'jsonwebtoken';
-import { config } from '../config/config';
+import { config } from '@config/config';
 
 const { JWT_SECRET, JWT_EXPIRES_IN } = config;
 

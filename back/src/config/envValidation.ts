@@ -1,4 +1,4 @@
-import { cleanEnv, str, email, json, num } from 'envalid';
+import { cleanEnv, str, num } from 'envalid';
 
 export const env = cleanEnv(process.env, {
   PORT: num(4000 as any),
